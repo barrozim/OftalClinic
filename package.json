@@ -4,7 +4,7 @@
   "description": "OftalClinic é uma aplicação web desenvolvida para cadeira Requisitos de Sistemas da Universidade Estácio de Sá (FIC - Moreira Campos)",
   "main": "app.js",
   "scripts": {
-    "dev": "webpack-dev-server --mode \"development\" --progress --colors --inline --hot",
+    "dev": "webpack-dev-server --mode \"development\" --progress --colors --inline --hot --open",
     "production": "webpack --mode \"production\" --progress -p"
   },
   "repository": {
@@ -24,8 +24,11 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "bootstrap": "^4.0.0",
     "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
+    "font-awesome": "^4.7.0",
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
