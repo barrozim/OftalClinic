@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import Sobre from '../sobre/sobre'
 import Login from '../login/login'
 import Home from '../home/home'
+import Menu from '../template/menu'
 
 export default props => (
     <main>
