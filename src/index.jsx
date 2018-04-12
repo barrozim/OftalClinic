@@ -1,5 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './login/login'
+import { HashRouter } from 'react-router-dom'
+import App from './main/app'
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(
+<HashRouter>
+    <App />
+</HashRouter>
+, document.getElementById('app'))

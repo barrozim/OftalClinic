@@ -1,5 +1,6 @@
 import 'modules/bootstrap/dist/css/bootstrap.min.css'
 import 'modules/font-awesome/css/font-awesome.min.css'
+
 import '../app.css'
 
 import React from 'react'
@@ -10,7 +11,7 @@ export default props => (
             <div className="col-lg-6 col-lg-offset-3">
                 <div className="inner-form">
                     <h1>OftalClinic</h1>
-                    <form role="form">
+                    <form role="form" action="#/home" method="get">
                         <div className="row">
                             <div className="col-lg-12">
                                 <label>E-mail</label>
