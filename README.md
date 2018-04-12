@@ -5,3 +5,7 @@ OftalClinic é uma aplicação web desenvolvida para cadeira Requisitos de Siste
 Docente:
 Gerhard Philippe de Saboia Oliveira
 Currículo lattes: http://lattes.cnpq.br/2373847814121241
+
+Dicente:
+Daniel Nascimento Barroso
+Currículo lattes: 
