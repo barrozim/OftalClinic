@@ -6,10 +6,10 @@ const extractCss = new ExtractTextPlugin("app.css");
 module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/frontend/index.html'
+      template: './src/index.html'
     }), extractCss
   ],
-  entry: './src/frontend/index.jsx',
+  entry: './src/index.jsx',
   output: {
     path: path.join(__dirname, '/public'),
     filename: 'bundle.js'
@@ -43,7 +43,7 @@ module.exports = {
         }
       },
       {
-        test: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
+        test: /\.woff|.woff2|.ttf|.eot|.png|.svg*.*$/,
         loader: 'file-loader'
       }
     ]

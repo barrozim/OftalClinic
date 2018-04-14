@@ -1,0 +1,21 @@
+{
+  "name": "oftalclinic",
+  "version": "1.0.0",
+  "description": "OftalClinic é uma aplicação web desenvolvida para cadeira Requisitos de Sistemas da Universidade Estácio de Sá (FIC - Moreira Campos)",
+  "main": "src/loader.js",
+  "scripts": {
+    "dev": "nodemon",
+    "production": "pm2 start src/loader.js --name todo-app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.14",
+    "node-restful": "^0.2.6",
+    "nodemon": "^1.17.3",
+    "pm2": "^2.10.2"
+  }
+}
