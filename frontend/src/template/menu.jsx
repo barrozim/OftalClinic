@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default props => (
-  <nav className="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-primary">
+<nav className="navbar header-top sticky-top navbar-expand-lg  navbar-dark bg-primary">
     <a className="navbar-brand" href="#/home">OftalClinic</a>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -20,6 +20,9 @@ export default props => (
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#/relatorio">Relatório</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#/usuario">Usuário</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#/sobre">Sobre</a>

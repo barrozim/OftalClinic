@@ -9,9 +9,9 @@ import Home from '../home/home'
 import Cliente from '../cliente/index'
 import Consulta from '../consulta/index'
 import Relatorio from '../relatorio/index'
+import Usuario from '../usuario/index'
 
 export default props => (
-    <main>
     <Switch>
         <Route exact path="/" component={Login} />
         <Route exact path="/login" component={Login} />
@@ -20,6 +20,6 @@ export default props => (
         <Route path='/cliente' component={Cliente} />
         <Route path='/consulta' component={Consulta} />
         <Route path='/relatorio' component={Relatorio} />
+        <Route path='/usuario' component={Usuario} />
     </Switch>
-    </main>
 )
