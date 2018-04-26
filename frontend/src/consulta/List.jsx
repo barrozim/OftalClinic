@@ -9,15 +9,16 @@ export default props => {
     const renderRows = () => {
         const list = props.list || []
 
-        return list.map(usuario => (
-            <tr key={usuario._id}>
-                <td>{usuario.nome}</td>
-                <td>{usuario.email}</td>
-                <td>{dateFormat(usuario.dataatualizacao, "dd/mm/yyyy HH:MM:ss")}</td>
-                <td>{dateFormat(usuario.datacriacao, "dd/mm/yyyy HH:MM:ss")}</td>
+        return list.map(cliente => (
+            <tr key={cliente._id}>
+                <td>{cliente.cliente}</td>
+                <td>{cliente.medico}</td>
+                <td>{dateFormat(cliente.datahora, "dd/mm/yyyy HH:MM:ss")}</td>
+                <td>{dateFormat(cliente.dataatualizacao, "dd/mm/yyyy HH:MM:ss")}</td>
+                <td>{dateFormat(cliente.datacriacao, "dd/mm/yyyy HH:MM:ss")}</td>
                 <td>
                     <IconButton style='danger' icon='trash-o' help="Clique para excluir"
-                        onClick={() => props.handleRemove(usuario)}></IconButton>
+                        onClick={() => props.handleRemove(cliente)}></IconButton>
                 </td>
             </tr>
         ))
@@ -26,8 +27,9 @@ export default props => {
         <table className='table table-striped table-bordered table-hover table-sm'>
             <thead className="thead-light">
                 <tr>
-                    <th>Nome</th>
-                    <th>E-mail</th>
+                    <th>Cliente</th>
+                    <th>Médico</th>
+                    <th>Data e Hora</th>
                     <th>Dt. Atualização</th>
                     <th>Dt. Criação</th>
                     <th>Ações</th>

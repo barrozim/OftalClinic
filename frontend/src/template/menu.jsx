@@ -16,6 +16,9 @@ export default props => (
           <a className="nav-link" href="#/cliente">Cliente</a>
         </li>
         <li className="nav-item">
+          <a className="nav-link" href="#/medico">Médico</a>
+        </li>
+        <li className="nav-item">
           <a className="nav-link" href="#/consulta">Consulta</a>
         </li>
         <li className="nav-item">

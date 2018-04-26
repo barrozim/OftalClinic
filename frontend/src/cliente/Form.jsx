@@ -23,10 +23,10 @@ export default props => (
                 value={props.email}></input>
         </Grid>
         <Grid cols='12 9 10'>
-        <label>Senha:</label>
-            <input id='senha' className='form-control' type='password'
-                placeholder='Digite a sua senha'
-                onChange={props.handleChangeSenha}
+        <label>Celular:</label>
+            <input id='telefone1' className='form-control' 
+                placeholder='Digite o número do celular (85)99999-9999'
+                onChange={props.handleChangeTelefone1}
                 value={props.senha}></input>
         </Grid>
         <br />
@@ -40,7 +40,7 @@ export default props => (
     </div>
     </If>
     <If test={props.hideFormulario}>
-    <IconButton style='primary' icon='plus' legend='Adicionar usuário'
+    <IconButton style='primary' icon='plus' legend='Adicionar cliente'
                 onClick={props.handleAddFormulario}></IconButton><br /><br />
     </If>
     </div>

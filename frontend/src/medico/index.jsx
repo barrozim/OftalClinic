@@ -7,20 +7,24 @@ import Form from './Form'
 import List from './List'
 
 
-const URL = 'http://localhost:3003/api/oftalclinic/usuario'
+const URL = 'http://localhost:3003/api/oftalclinic/medico'
 
 export default class Usuario extends Component {
     constructor(props) {
         super(props)
-        this.state = { nome: '', email: '', senha: '', hideFormulario : true, list: [] }
+        this.state = { nome: '', email: '', telefonecelular: '', crm : '', especialidade : '', hideFormulario : true, list: [] }
         this.handleChangeNome = this.handleChangeNome.bind(this)
         this.handleChangeEmail = this.handleChangeEmail.bind(this)
-        this.handleChangeSenha = this.handleChangeSenha.bind(this)
+        this.handleChangeCelular = this.handleChangeCelular.bind(this)
+        this.handleChangeCRM = this.handleChangeCRM.bind(this)
+        this.handleChangeEspecialidade = this.handleChangeEspecialidade.bind(this)
 
         this.handleAdd = this.handleAdd.bind(this)
         this.handleRemove = this.handleRemove.bind(this)
         this.handleCancel = this.handleCancel.bind(this)
         this.handleAddFormulario = this.handleAddFormulario.bind(this)
+
+        
         this.atualizarTela()
     }
 
@@ -39,18 +43,22 @@ export default class Usuario extends Component {
         this.setState({ ...this.state, email: e.target.value })
     }
 
-    handleChangeSenha(e) {
-        this.setState({ ...this.state, senha: e.target.value })
+    handleChangeCelular(e) {
+        this.setState({ ...this.state, telefonecelular: e.target.value })
     }
 
-    handleAdd() {
-        const json = {
-            nome: this.state.nome,
-            email: this.state.email,
-            senha: this.state.senha
-        }
+    handleChangeCRM(e) {
+        this.setState({ ...this.state, crm: e.target.value })
+    }
 
-        axios.post(URL, json)
+    handleChangeEspecialidade(e) {
+        this.setState({ ...this.state, especialidade: e.target.value })
+    }
+
+
+
+    handleAdd() {
+        axios.post(URL, this.state)
             .then(resp => this.atualizarTela(true))
     }
 
@@ -69,11 +77,13 @@ export default class Usuario extends Component {
         return (
             <div>
                 <Menu />
-                <PageHeader name='Usário' small='Administre os usuários da aplicação'></PageHeader>
+                <PageHeader name='Médico' small='Administre a lista de médicos'></PageHeader>
                 <Form 
                     handleChangeNome={this.handleChangeNome}
                     handleChangeEmail={this.handleChangeEmail}
-                    handleChangeSenha={this.handleChangeSenha}
+                    handleChangeCelular={this.handleChangeCelular}
+                    handleChangeCRM={this.handleChangeCRM}
+                    handleChangeEspecialidade={this.handleChangeEspecialidade}
                     handleAdd={this.handleAdd} 
                     handleAddFormulario={this.handleAddFormulario}
                     hideFormulario={this.state.hideFormulario}

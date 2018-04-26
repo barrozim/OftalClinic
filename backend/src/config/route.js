@@ -13,4 +13,7 @@ module.exports = function (server) {
 
     const oftalclinicServiceUsuario = require('../api/oftalclinic/usuario/usuarioService');
     oftalclinicServiceUsuario.register(router, '/oftalclinic/usuario');
+
+    const oftalclinicServiceMedico = require('../api/oftalclinic/medico/medicoService');
+    oftalclinicServiceMedico.register(router, '/oftalclinic/medico');
 }

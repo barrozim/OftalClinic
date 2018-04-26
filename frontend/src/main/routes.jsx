@@ -10,6 +10,8 @@ import Cliente from '../cliente/index'
 import Consulta from '../consulta/index'
 import Relatorio from '../relatorio/index'
 import Usuario from '../usuario/index'
+import Medico from '../medico/index'
+
 
 export default props => (
     <Switch>
@@ -20,6 +22,6 @@ export default props => (
         <Route path='/cliente' component={Cliente} />
         <Route path='/consulta' component={Consulta} />
         <Route path='/relatorio' component={Relatorio} />
-        <Route path='/usuario' component={Usuario} />
+        <Route path='/usuario' component={Usuario} /><Route path='/medico' component={Medico} />
     </Switch>
 )
