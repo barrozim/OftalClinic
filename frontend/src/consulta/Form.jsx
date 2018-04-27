@@ -56,7 +56,7 @@ export default props => (
                     />
                 </Grid>
                 <br />
-                <Grid cols='12 3 2'>
+                <Grid cols='4 4 4'>
                     <IconButton style='danger' icon='clear' legend='Cancelar'
                         onClick={props.handleCancel}></IconButton>&nbsp;
             <IconButton style='primary' icon='save' legend='Salvar'

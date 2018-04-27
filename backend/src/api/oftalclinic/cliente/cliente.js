@@ -1,5 +1,7 @@
 const restful = require('node-restful');
 
+
+
 const mongoose = restful.mongoose;
 
 const clienteSchema = new mongoose.Schema({
@@ -21,5 +23,6 @@ const clienteSchema = new mongoose.Schema({
     datacriacao: { type: Date, default: Date.now },
     dataatualizacao: { type: Date, default: Date.now }
 });
+
 
 module.exports = restful.model('Cliente', clienteSchema);

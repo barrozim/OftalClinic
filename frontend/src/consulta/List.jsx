@@ -11,8 +11,8 @@ export default props => {
 
         return list.map(cliente => (
             <tr key={cliente._id}>
-                <td>{cliente.cliente}</td>
-                <td>{cliente.medico}</td>
+                <td>{cliente.clienteId.nome}</td>
+                <td>{cliente.medicoId.nome}</td>
                 <td>{dateFormat(cliente.datahora, "dd/mm/yyyy HH:MM:ss")}</td>
                 <td>{dateFormat(cliente.dataatualizacao, "dd/mm/yyyy HH:MM:ss")}</td>
                 <td>{dateFormat(cliente.datacriacao, "dd/mm/yyyy HH:MM:ss")}</td>
@@ -21,7 +21,8 @@ export default props => {
                         onClick={() => props.handleRemove(cliente)}></IconButton>
                 </td>
             </tr>
-        ))
+        )
+    )
     }
     return (
         <table className='table table-striped table-bordered table-hover table-sm'>

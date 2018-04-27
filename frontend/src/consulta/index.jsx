@@ -37,22 +37,25 @@ export default class Usuario extends Component {
     }
 
     atualizarTela(add = true) {
-        axios.get(`${URL}consulta?sort=-dataatualizacao`)
-            .then(resp => this.setState({
-                ...this.state, list: resp.data, hideFormulario: add, datahora : moment()
-            }))
-
+        axios.get(`${URL}consulta?sort=-dataatualizacao&populate=medicoId&populate=clienteId`)
+            .then(resp => 
+                this.setState({
+                    ...this.state, list: resp.data, hideFormulario: add, datahora: moment()
+                })
+            
+            )
         this.clienteAjaxFetch()
 
         this.medicosAjaxFetch()
     }
 
     handleChangeCliente(e) {
-        this.setState({ ...this.state, clienteId: e.id })
+  
+        this.setState({ ...this.state, clienteId: e._id })
     }
 
     handleChangeMedico(e) {
-        this.setState({ ...this.state, medicoId: e.id })
+        this.setState({ ...this.state, medicoId: e._id })
     }
 
     handleChangeDataHora(e) {
@@ -60,13 +63,19 @@ export default class Usuario extends Component {
     }
 
     handleAdd() {
-        axios.post(`${URL}consulta`, this.state)
+        var json = {
+            clienteId: this.state.listCliente.find(c => c._id == this.state.clienteId)
+            , medicoId: this.state.listMedicos.find(c => c._id == this.state.medicoId)
+            , datahora: this.state.datahora
+        }
+
+        axios.post(`${URL}consulta`, json)
             .then(resp => this.atualizarTela(true))
     }
 
-    handleChangeDateTime(date){
+    handleChangeDateTime(date) {
         console.log(date)
-        this.setState({...this.state, datahora: date })
+        this.setState({ ...this.state, datahora: date })
     }
 
     handleRemove(obj) {

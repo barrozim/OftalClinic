@@ -8,6 +8,7 @@ export default props => (
     <div>
     <If test={!props.hideFormulario}>
     <div role='form' className='todoForm'>
+    <div className='row'>
         <Grid cols='12 9 10'>
             <label>Nome:</label>
             <input id='nome' className='form-control'
@@ -15,41 +16,48 @@ export default props => (
                 onChange={props.handleChangeNome}
                 value={props.nome}></input>
         </Grid>
-        <Grid cols='12 9 10'>
+        </div>
+        <div className='row'>
+        <Grid cols='12 4 5'>
         <label>E-mail:</label>
             <input id='email' className='form-control'
                 placeholder='Digite seu e-mail'
                 onChange={props.handleChangeEmail}
                 value={props.email}></input>
         </Grid>
-        <Grid cols='12 9 10'>
+        <Grid cols='12 4 5'>
         <label>Celular:</label>
             <input id='telefonecelular' className='form-control' 
                 placeholder='Digite o número do celular (85)99999-9999'
                 onChange={props.handleChangeCelular}
                 value={props.senha}></input>
         </Grid>
-        <Grid cols='12 9 10'>
+        </div>
+        <div className='row'>
+        <Grid cols='12 4 5'>
         <label>CRM:</label>
             <input id='crm' className='form-control' 
                 placeholder='Digite o CRM'
                 onChange={props.handleChangeCRM}
                 value={props.senha}></input>
         </Grid>
-        <Grid cols='12 9 10'>
+        <Grid cols='12 4 5'>
         <label>Especialidades:</label>
             <input id='especialidade' className='form-control' 
                 placeholder='Digite a especialidade'
                 onChange={props.handleChangeEspecialidade}
                 value={props.senha}></input>
         </Grid>
+        </div>
         <br />
-        <Grid cols='12 3 2'>
+        <div className='row'>
+        <Grid cols='4 4 4'>
         <IconButton style='danger' icon='clear' legend='Cancelar'
                 onClick={props.handleCancel}></IconButton>&nbsp;
             <IconButton style='primary' icon='save' legend='Salvar'
                 onClick={props.handleAdd}></IconButton>
         </Grid>
+        </div>
         <br />
     </div>
     </If>

@@ -11,7 +11,6 @@ server.use(bodyParser.json());
 server.use(allowCors);
 
 server.use(function (req, res, next) {
-    console.log(req)
     next()
   })
 

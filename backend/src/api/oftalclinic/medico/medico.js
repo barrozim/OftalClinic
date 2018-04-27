@@ -1,5 +1,6 @@
 const restful = require('node-restful');
 
+
 const mongoose = restful.mongoose;
 
 const medicoSchema = new mongoose.Schema({
@@ -22,5 +23,6 @@ const medicoSchema = new mongoose.Schema({
     datacriacao: { type: Date, default: Date.now },
     dataatualizacao: { type: Date, default: Date.now }
 });
+
 
 module.exports = restful.model('Medico', medicoSchema);
