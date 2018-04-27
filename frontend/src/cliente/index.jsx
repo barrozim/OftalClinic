@@ -7,7 +7,7 @@ import Form from './Form'
 import List from './List'
 
 
-const URL = 'http://localhost:3003/api/oftalclinic/cliente'
+const URL = 'http://35.231.93.88:3003/api/oftalclinic/cliente'
 
 export default class Usuario extends Component {
     constructor(props) {

@@ -10,7 +10,7 @@ import List from './List'
 import Cliente from '../cliente/index'
 
 
-const URL = 'http://localhost:3003/api/oftalclinic/'
+const URL = 'http://35.231.93.88:3003/api/oftalclinic/'
 
 export default class Usuario extends Component {
     constructor(props) {
