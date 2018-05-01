@@ -14,7 +14,7 @@ server.use(function (req, res, next) {
     next()
   })
 
-server.listen(port, function () {
+server.listen(port, '0.0.0.0', function () {
     console.log(`OftalClinic - BACKEND executando na porta ${port}.`);
 });
 
