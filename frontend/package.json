@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --mode \"development\" --progress --colors --inline --hot --open",
     "production": "webpack --mode \"production\" --progress -p",
-    "run-server": "pm2 start src/httpserver.js --name todo-app"
+    "run-server": "pm2 start src/httpserver.js --name oftalclinic-frontend"
   },
   "repository": {
     "type": "git",
