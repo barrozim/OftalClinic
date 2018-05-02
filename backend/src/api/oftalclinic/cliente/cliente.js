@@ -20,6 +20,7 @@ const clienteSchema = new mongoose.Schema({
     ocupacao: { type: String, required: false },
     email: { type: String, required: true },
     datanascimento: { type: Date, required: false },
+    encaminhadopord: { type: String, required: false },
     datacriacao: { type: Date, default: Date.now },
     dataatualizacao: { type: Date, default: Date.now }
 });

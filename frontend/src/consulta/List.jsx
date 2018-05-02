@@ -9,7 +9,7 @@ export default props => {
     const renderRows = () => {
         const list = props.list || []
 
-        return list.map(cliente => (
+        return list.filter(consulta => consulta.clienteId != null && consulta.medicoId != null).map(cliente => (
             <tr key={cliente._id}>
                 <td>{cliente.clienteId.nome}</td>
                 <td>{cliente.medicoId.nome}</td>

@@ -1,4 +1,11 @@
 import React, { Component } from 'react'
+import {connect } from 'react-redux'
+import {bindActionCreators} from 'redux'
+
+
+import {atualizarTela, modifyHideFormulario} from './clienteActions'
+
+
 import axios from 'axios'
 
 import Menu from '../template/menu'
@@ -9,28 +16,21 @@ import List from './List'
 
 const URL = 'http://35.231.93.88:3003/api/oftalclinic/cliente'
 
-export default class Usuario extends Component {
+class Cliente extends Component {
+    componentWillMount(){
+        this.props.atualizarTela()
+    }
+
     constructor(props) {
         super(props)
-        this.state = { nome: '', email: '', telefone1: '', hideFormulario : true, list: [] }
+
         this.handleChangeNome = this.handleChangeNome.bind(this)
         this.handleChangeEmail = this.handleChangeEmail.bind(this)
         this.handleChangeTelefone1 = this.handleChangeTelefone1.bind(this)
 
         this.handleAdd = this.handleAdd.bind(this)
         this.handleRemove = this.handleRemove.bind(this)
-        this.handleCancel = this.handleCancel.bind(this)
         this.handleAddFormulario = this.handleAddFormulario.bind(this)
-
-        
-        this.atualizarTela()
-    }
-
-    atualizarTela(add = true) {
-        axios.get(`${URL}?sort=-dataatualizacao`)
-            .then(resp => this.setState({
-                ...this.state, list: resp.data, hideFormulario : add
-            }))
     }
 
     handleChangeNome(e) {
@@ -61,13 +61,8 @@ export default class Usuario extends Component {
             .then(resp =>  this.atualizarTela() )
     }
 
-
-    handleCancel () {
-        this.setState({ ...this.state, hideFormulario : true })
-    }
-
     handleAddFormulario() {
-        this.setState({ ...this.state, hideFormulario : false })
+        this.props.modifyHideFormulario(this.props.hideFormulario)
     }
     render() {
         return (
@@ -80,13 +75,17 @@ export default class Usuario extends Component {
                     handleChangeTelefone1={this.handleChangeTelefone1}
                     handleAdd={this.handleAdd} 
                     handleAddFormulario={this.handleAddFormulario}
-                    hideFormulario={this.state.hideFormulario}
-                    handleCancel={this.handleCancel}
+                    hideFormulario={this.props.hideFormulario}
+                    handleCancel={this.handleAddFormulario}
                     />
-                <List list={this.state.list}
+                <List list={this.props.list}
                     handleRemove={this.handleRemove} 
                      />
             </div>
         )
     }
 }
+
+const mapStateToProps = state => ({list : state.cliente.list, hideFormulario : state.cliente.hideFormulario})
+const DispatchToProps = dispatch => bindActionCreators({atualizarTela, modifyHideFormulario}, dispatch)
+export default connect(mapStateToProps,DispatchToProps)(Cliente)

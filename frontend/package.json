@@ -48,6 +48,7 @@
     "react-router-dom": "^4.2.2",
     "react-super-select": "^1.0.15",
     "redux": "^3.7.2",
+    "redux-form": "^7.3.0",
     "redux-multi": "^0.1.12",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
