@@ -5,7 +5,8 @@ export default function (state = INITIAL_STATE, action) {
         case 'CLIENTE_FETCHED':
             return { ...state, list: action.payload.data }
         case 'CLIENTE_STATUSFORM':
-            return { ...state, hideFormulario: action.payload }
+            console.log(state)
+            return { ...state, hideFormulario: !state.hideFormulario }
         default:
             return state;
     }

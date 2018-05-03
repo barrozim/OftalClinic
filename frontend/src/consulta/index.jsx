@@ -7,8 +7,6 @@ import PageHeader from '../template/pageheader'
 import Form from './Form'
 import List from './List'
 
-import Cliente from '../cliente/index'
-
 
 const URL = 'http://35.231.93.88:3003/api/oftalclinic/'
 

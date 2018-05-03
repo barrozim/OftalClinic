@@ -1,4 +1,6 @@
 import {combineReducers} from 'redux'
+import { reducer as formReducer } from 'redux-form'
+import {reducer as toastrReducer} from 'react-redux-toastr'
 
 import clienteReducers from '../cliente/clienteReducers'
 import consultaReducers from '../consulta/consultaReducers'
@@ -9,7 +11,9 @@ const rootReducer = combineReducers({
     cliente : clienteReducers,
     medicos : medicoReducers,
     usuario : usuarioReducers,
-    consulta : consultaReducers
+    consulta : consultaReducers,
+    form : formReducer,
+    toastr : toastrReducer
 })
 
 
