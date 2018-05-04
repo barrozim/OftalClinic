@@ -7,16 +7,40 @@ const URL = 'http://35.231.93.88:3003/api/oftalclinic/cliente'
 const INITIAL_VALUES = { hideFormulario: false, list: [] }
 
 export function getList() {
-    const request = axios.get(`${URL}?sort=-dataatualizacao`)
-    return {
-        type: 'CLIENTE_FETCHED',
-        payload: request
+    return function action(dispatch)
+    {
+        //dispatch({ type: 'CLIENTE_FETCHED' })
+
+        const request = axios.get(`${URL}?sort=-dataatualizacao`)
+
+        return request.then(
+            response => dispatch(fetchOffersSuccess(response)),
+            err => dispatch(fetchOffersError(err))
+          );
+
     }
 }
 
-export function modifyHideFormulario() {
+export function fetchOffersSuccess(response)
+{
     return {
-        type: 'CLIENTE_STATUSFORM'
+        type: 'CLIENTE_FETCHED',
+        payload: response
+    }
+}
+
+export function fetchOffersError(err)
+{
+    return {
+        type: 'CLIENTE_FETCHED_ERROR',
+        payload: err
+    }
+}
+
+
+export function modifyHideFormulario() {
+    return function action(dispatch) {
+        dispatch({ type: 'CLIENTE_STATUSFORM' })
     }
 }
 
@@ -40,7 +64,8 @@ export function create(values)
     .then(resp => {
         toastr.success('Sucesso', 'Operação Realizada com sucesso.')
         dispatch([
-            init()
+            init(),
+            modifyHideFormulario()
         ])
     })
     .catch(e => {
@@ -55,8 +80,8 @@ export function init(){
     return [
         resetForm('clienteForm'),
         getList(),
-        initialize('clientForm', INITIAL_VALUES),
-        modifyHideFormulario()
+        initialize('clientForm', INITIAL_VALUES)
+        
     ]
 
 }
