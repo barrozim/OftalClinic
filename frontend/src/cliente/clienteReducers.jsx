@@ -1,4 +1,4 @@
-const INITIAL_STATE = { hideFormulario: false, list: [] }
+const INITIAL_STATE = { hideFormulario: true, list: [] }
 
 export default function (state = INITIAL_STATE, action) {
     switch (action.type) {

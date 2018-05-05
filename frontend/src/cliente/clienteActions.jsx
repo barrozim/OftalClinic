@@ -4,8 +4,6 @@ import { toastr } from 'react-redux-toastr'
 
 const URL = 'http://35.231.93.88:3003/api/oftalclinic/cliente'
 
-const INITIAL_VALUES = { hideFormulario: false, list: [] }
-
 export function getList() {
     return function action(dispatch) {
         const request = axios.get(`${URL}?sort=-dataatualizacao`)
@@ -35,7 +33,7 @@ export function fetchOffersError(err) {
 
 export function modifyHideFormulario() {
     return function action(dispatch) {
-        dispatch({ type: 'CLIENTE_STATUSFORM' })
+        dispatch({ type: 'CLIENTE_STATUSFORM', payload : true })
     }
 }
 
@@ -73,9 +71,7 @@ export function create(values) {
 export function init() {
     return [
         resetForm('clienteForm'),
-        getList(),
-        initialize('clientForm', INITIAL_VALUES)
-
+        getList()
     ]
 
 }
