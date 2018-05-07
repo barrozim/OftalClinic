@@ -4,24 +4,23 @@ import { bindActionCreators } from 'redux'
 import If from '../template/if'
 import Grid from '../template/grid'
 import IconButton from '../template/iconButton'
-import { init, create, modifyHideFormulario, remove } from './clienteActions'
-
+import { init, create, modifyHideFormulario, remove } from './medicoActions'
 
 import Menu from '../template/menu'
 import PageHeader from '../template/pageheader'
-import Form from './clienteForm'
-import List from './clienteList'
+import Form from './medicoForm'
+import List from './medicoList'
 
-
-class Cliente extends Component {
+class Medico extends Component {
     componentWillMount() {
         this.props.init()
     }
+
     render() {
         return (
             <div>
                 <Menu />
-                <PageHeader name='Cliente' small='Verifique as informações dos clientes'></PageHeader>
+                <PageHeader name='Médico' small='Administre a lista de médicos'></PageHeader>
                 <If test={!this.props.hideFormulario}>
                     <Form
                         onSubmit={this.props.create}
@@ -33,15 +32,14 @@ class Cliente extends Component {
                     <IconButton style='primary' icon='plus' legend='Adicionar cliente'
                         onClick={() => this.props.modifyHideFormulario()} typebutton='button'></IconButton><br /><br />
                     <List list={this.props.list}
-                        handleRemove={this.props.remove}
+                        handleRemove={this.handleRemove}
                     />
                 </If>
-
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({ list: state.cliente.list, hideFormulario: state.cliente.hideFormulario })
+const mapStateToProps = state => ({ list: state.medico.list, hideFormulario: state.medico.hideFormulario })
 const DispatchToProps = dispatch => bindActionCreators({ init, create, modifyHideFormulario, remove }, dispatch)
-export default connect(mapStateToProps, DispatchToProps)(Cliente)
+export default connect(mapStateToProps, DispatchToProps)(Medico)

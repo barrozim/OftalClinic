@@ -4,16 +4,15 @@ import { bindActionCreators } from 'redux'
 import If from '../template/if'
 import Grid from '../template/grid'
 import IconButton from '../template/iconButton'
-import { init, create, modifyHideFormulario, remove } from './clienteActions'
-
+import { init, create, modifyHideFormulario, remove } from './consultaActions'
 
 import Menu from '../template/menu'
 import PageHeader from '../template/pageheader'
-import Form from './clienteForm'
-import List from './clienteList'
+import Form from './consultaForm'
+import List from './consultaList'
 
 
-class Cliente extends Component {
+class Consulta extends Component {
     componentWillMount() {
         this.props.init()
     }
@@ -21,7 +20,7 @@ class Cliente extends Component {
         return (
             <div>
                 <Menu />
-                <PageHeader name='Cliente' small='Verifique as informações dos clientes'></PageHeader>
+                <PageHeader name='Consulta' small='Agende sua consulta'></PageHeader>
                 <If test={!this.props.hideFormulario}>
                     <Form
                         onSubmit={this.props.create}
@@ -30,18 +29,19 @@ class Cliente extends Component {
                     />
                 </If>
                 <If test={this.props.hideFormulario}>
-                    <IconButton style='primary' icon='plus' legend='Adicionar cliente'
+                    <IconButton style='primary' icon='plus' legend='Adicionar consulta'
                         onClick={() => this.props.modifyHideFormulario()} typebutton='button'></IconButton><br /><br />
                     <List list={this.props.list}
                         handleRemove={this.props.remove}
                     />
                 </If>
-
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({ list: state.cliente.list, hideFormulario: state.cliente.hideFormulario })
+
+
+const mapStateToProps = state => ({ list: state.consulta.list, hideFormulario: state.consulta.hideFormulario })
 const DispatchToProps = dispatch => bindActionCreators({ init, create, modifyHideFormulario, remove }, dispatch)
-export default connect(mapStateToProps, DispatchToProps)(Cliente)
+export default connect(mapStateToProps, DispatchToProps)(Consulta)

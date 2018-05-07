@@ -4,9 +4,12 @@ import { toastr } from 'react-redux-toastr'
 
 import Configuration from '../configuration'
 
-const URL =  Configuration.UrlApi + 'cliente'
+const URL =  Configuration.UrlApi + 'medico'
 
-export function getList() {
+export function read() {
+
+    console.log('Read Medicos')
+
     return function action(dispatch) {
         const request = axios.get(`${URL}?sort=-dataatualizacao`)
 
@@ -20,14 +23,14 @@ export function getList() {
 
 export function fetchOffersSuccess(response) {
     return {
-        type: 'CLIENTE_FETCHED',
+        type: 'MEDICO_FETCHED',
         payload: response
     }
 }
 
 export function fetchOffersError(err) {
     return {
-        type: 'CLIENTE_FETCHED_ERROR',
+        type: 'MEDICO_FETCHED_ERROR',
         payload: err
     }
 }
@@ -35,7 +38,7 @@ export function fetchOffersError(err) {
 
 export function modifyHideFormulario() {
     return function action(dispatch) {
-        dispatch({ type: 'CLIENTE_STATUSFORM', payload : true })
+        dispatch({ type: 'MEDICO_STATUSFORM', payload : true })
     }
 }
 
@@ -72,8 +75,8 @@ export function create(values) {
 
 export function init() {
     return [
-        resetForm('clienteForm'),
-        getList()
+        resetForm('medicoForm'),
+        read()
     ]
 
 }

@@ -9,7 +9,7 @@ import usuarioReducers from '../usuario/usuarioReducers'
 
 const rootReducer = combineReducers({
     cliente : clienteReducers,
-    medicos : medicoReducers,
+    medico : medicoReducers,
     usuario : usuarioReducers,
     consulta : consultaReducers,
     form : formReducer,
