@@ -32,7 +32,7 @@ class Medico extends Component {
                     <IconButton style='primary' icon='plus' legend='Adicionar cliente'
                         onClick={() => this.props.modifyHideFormulario()} typebutton='button'></IconButton><br /><br />
                     <List list={this.props.list}
-                        handleRemove={this.handleRemove}
+                        handleRemove={this.props.remove}
                     />
                 </If>
             </div>

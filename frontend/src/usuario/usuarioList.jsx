@@ -13,6 +13,7 @@ export default props => {
             <tr key={usuario._id}>
                 <td>{usuario.nome}</td>
                 <td>{usuario.email}</td>
+                <td>{usuario.tipo}</td>
                 <td>{dateFormat(usuario.dataatualizacao, "dd/mm/yyyy HH:MM:ss")}</td>
                 <td>{dateFormat(usuario.datacriacao, "dd/mm/yyyy HH:MM:ss")}</td>
                 <td>
@@ -28,6 +29,7 @@ export default props => {
                 <tr>
                     <th>Nome</th>
                     <th>E-mail</th>
+                    <th>Tipo</th>
                     <th>Dt. Atualização</th>
                     <th>Dt. Criação</th>
                     <th>Ações</th>

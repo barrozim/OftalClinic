@@ -528,3 +528,7 @@
     background-color: #eee;
   }
   
+
+  .react-datepicker__time-list {
+    margin-left: -33px !important;
+  }

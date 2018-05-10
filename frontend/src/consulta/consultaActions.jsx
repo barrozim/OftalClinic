@@ -4,6 +4,7 @@ import { toastr } from 'react-redux-toastr'
 
 import Configuration from '../configuration'
 
+
 const URL = Configuration.UrlApi + 'consulta'
 const URLMEDICO = Configuration.UrlApi + 'medico'
 const URLCLIENTE = Configuration.UrlApi + 'cliente'
@@ -55,18 +56,21 @@ export function remove(obj) {
 }
 
 export function create(values) {
-    return dispatch => {
+    console.log('Salvar formulario consulta!')
+
+    return (dispatch, getState) => {
+
+        const state = getState()
+
+
         var json = {
-            clienteId: this.state.listCliente.find(c => c._id == values.clienteId)
-            , medicoId: this.state.listMedicos.find(c => c._id == values.medicoId)
-            , datahora: values.datahora
+            clienteId: state.consulta.clienteSelecionado
+            , medicoId: state.consulta.medicoSelecionado
+            , datahora: state.consulta.dataHoraSelecionado
         }
+        console.log(json)
 
-        axios.post(`${URL}consulta`, json)
-            .then(resp => this.atualizarTela(true))
-
-
-        axios.post(URL, values)
+        axios.post(URL, json)
             .then(resp => {
                 toastr.success('Sucesso', 'Operação Realizada com sucesso.')
                 dispatch([
@@ -85,7 +89,9 @@ export function create(values) {
 export function init() {
     return [
         resetForm('consultaForm'),
-        read()
+        read(),
+        readcliente(),
+        readmedico()
     ]
 
 }
@@ -107,5 +113,25 @@ export function readmedico() {
             response => dispatch(fetchOffersSuccess('CONSULTA_MEDICO_FETCHED', response)),
             err => dispatch(fetchOffersError('CONSULTA_MEDICO_FETCHED_ERROR',err))
         );
+    }
+}
+
+export function SelecionarMedico(obj) {
+    return {
+        type : 'CONSULTA_SELECTED_MEDICO'
+        , payload : obj
+    }
+}
+
+export function SelecionarCliente(obj) {
+    return {
+        type : 'CONSULTA_SELECTED_CLIENTE'
+        , payload : obj
+    }
+}
+export function SelecionarDataHora(obj) {
+    return {
+        type : 'CONSULTA_SELECTED_HORA'
+        , payload : obj
     }
 }

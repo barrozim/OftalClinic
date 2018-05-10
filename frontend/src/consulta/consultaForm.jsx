@@ -23,7 +23,7 @@ let ConsultaForm = props => {
             <Grid cols='12 9 10'>
             <label>Selecione o paciente:</label>
             <ReactSuperSelect placeholder="Clique para visualizar a lista de clientes"
-                dataSource={props.listCliente}
+                dataSource={props.clientes}
                 onChange={props.handleChangeCliente}
                 searchable={true} optionLabelKey='nome'
                 optionValueKey='_id'
@@ -36,7 +36,7 @@ let ConsultaForm = props => {
         <Grid cols='12 9 10'>
             <label>Selecione o médico:</label>
             <ReactSuperSelect placeholder="Clique para visualizar a lista de médicos"
-                dataSource={props.listMedicos}
+                dataSource={props.medicos}
                 onChange={props.handleChangeMedico}
                 searchable={true} optionLabelKey='nome'
                 optionValueKey='_id'
@@ -63,13 +63,10 @@ let ConsultaForm = props => {
         <Grid cols='4 4 4'>
             <IconButton style='danger' icon='clear' legend='Cancelar'
                 onClick={props.handleCancel}></IconButton>&nbsp;
-            <IconButton style='primary' icon='save' legend='Salvar'
+            <IconButton style='primary' icon='save' legend='Salvar' typebutton='submit'
                 onClick={props.handleAdd}></IconButton>
         </Grid>
             <br />
-
-            <IconButton style='primary' icon='calendar' legend='Marca consulta'
-                onClick={props.handleAddFormulario}></IconButton><br /><br />
         </form>
     )
 }

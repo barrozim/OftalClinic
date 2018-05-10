@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import If from '../template/if'
 import Grid from '../template/grid'
 import IconButton from '../template/iconButton'
-import { init, create, modifyHideFormulario, remove } from './consultaActions'
+import { init, create, modifyHideFormulario, remove, SelecionarCliente, SelecionarMedico, SelecionarDataHora } from './consultaActions'
 
 import Menu from '../template/menu'
 import PageHeader from '../template/pageheader'
@@ -22,10 +22,15 @@ class Consulta extends Component {
                 <Menu />
                 <PageHeader name='Consulta' small='Agende sua consulta'></PageHeader>
                 <If test={!this.props.hideFormulario}>
-                    <Form
+                    <Form medicos={this.props.medicos}
+                        clientes={this.props.clientes}
+                        datahora={this.props.datahora}
                         onSubmit={this.props.create}
                         handleAddFormulario={this.props.modifyHideFormulario}
                         handleCancel={this.props.modifyHideFormulario}
+                        handleChangeCliente={this.props.SelecionarCliente}
+                        handleChangeMedico={this.props.SelecionarMedico}
+                        handleChangeDateTime={this.props.SelecionarDataHora}
                     />
                 </If>
                 <If test={this.props.hideFormulario}>
@@ -42,6 +47,19 @@ class Consulta extends Component {
 
 
 
-const mapStateToProps = state => ({ list: state.consulta.list, hideFormulario: state.consulta.hideFormulario })
-const DispatchToProps = dispatch => bindActionCreators({ init, create, modifyHideFormulario, remove }, dispatch)
+const mapStateToProps = state => ({
+    list: state.consulta.list
+    , hideFormulario: state.consulta.hideFormulario
+    , medicos: state.consulta.listMedicos
+    , clientes: state.consulta.listCliente
+    , datahora: state.consulta.dataHoraSelecionado
+})
+const DispatchToProps = dispatch => bindActionCreators({
+    init, create
+    , modifyHideFormulario
+    , remove
+    , SelecionarCliente
+    , SelecionarMedico
+    , SelecionarDataHora
+}, dispatch)
 export default connect(mapStateToProps, DispatchToProps)(Consulta)
