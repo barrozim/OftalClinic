@@ -8,24 +8,27 @@ module.exports = function (server) {
     const protectedApi = express.Router()
     server.use('/api', protectedApi)
 
+     // API Aberta
+     const router = express.Router();
+     server.use('/oapi', router);
+
+
     // OftalClinic Routes
     const oftalclinicServiceCliente = require('../api/oftalclinic/cliente/clienteService');
-    oftalclinicServiceCliente.register(protectedApi, '/oftalclinic/cliente');
+    oftalclinicServiceCliente.register(router, '/oftalclinic/cliente');
 
 
     const oftalclinicServiceUsuario = require('../api/oftalclinic/usuario/usuarioService');
-    oftalclinicServiceUsuario.Usuario.register(protectedApi, '/oftalclinic/usuario');
+    oftalclinicServiceUsuario.Usuario.register(router, '/oftalclinic/usuario');
 
     const oftalclinicServiceMedico = require('../api/oftalclinic/medico/medicoService');
-    oftalclinicServiceMedico.register(protectedApi, '/oftalclinic/medico');
+    oftalclinicServiceMedico.register(router, '/oftalclinic/medico');
 
 
     const oftalclinicServiceConsulta = require('../api/oftalclinic/consulta/consultaService');
-    oftalclinicServiceConsulta.register(protectedApi, '/oftalclinic/consulta');
+    oftalclinicServiceConsulta.register(router, '/oftalclinic/consulta');
 
-    // API Aberta
-    const router = express.Router();
-    server.use('/oapi', router);
+   
     
     router.post('/login', oftalclinicServiceUsuario.login)
     router.post('/signup', oftalclinicServiceUsuario.signup)
