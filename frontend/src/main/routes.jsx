@@ -13,6 +13,8 @@ import Usuario from '../usuario/usuario'
 import Medico from '../medico/medico'
 
 
+
+
 export default props => (
     <Switch>
         <Route exact path="/" component={Login} />
@@ -24,6 +26,7 @@ export default props => (
         <Route path='/relatorio' component={Relatorio} />
         <Route path='/medico' component={Medico} />
         <Route path='/usuario' component={Usuario} />
+        
         {/* <Route path='/usuario' component={Usuario} /><Route path='/medico' component={Medico} /> */}
     </Switch>
 )

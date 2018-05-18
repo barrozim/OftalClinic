@@ -1,4 +1,4 @@
-const APIURL = 'http://35.231.93.88:3003/api/oftalclinic/'
+const APIURL = 'http://localhost:3003/oapi/oftalclinic/'
 
 
 
